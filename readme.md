@@ -15,3 +15,18 @@ vd: decrease volume by 5 percent.
 vu: Increase volume by 5 percent.
 
 quit: Exit.
+
+#Building
+You will need the following to build Player.
+
+##Windows
+*setuptools
+*py2exe
+
+type setup.py py2exe
+
+##mac
+*setuptools
+*py2app
+
+Type setup.py py2app

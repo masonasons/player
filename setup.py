@@ -1,14 +1,21 @@
+import platform
 from setuptools import setup, find_packages
 from glob import glob
 from distutils.core import setup
-import py2exe
+OPTIONS = {'argv_emulation': True}
+if platform.system=='Darwin':
+	import py2app
+else:
+	import py2exe
+
 def get_data():
  import accessible_output2
  import sound_lib
  return [
 ]+sound_lib.find_datafiles()
 
-setup(console=['player.py'],packages= find_packages(), options = {
+if platform.system()=='Windows':
+	setup(console=['player.py'],packages= find_packages(), options = {
    'py2exe': {   
     'optimize':2,
    'packages': ["dbhash"],
@@ -16,3 +23,9 @@ setup(console=['player.py'],packages= find_packages(), options = {
     'skip_archive': True
    },
   })
+if platform.system()=='Darwin':
+		setup(
+    app="player.py",
+    options={'py2app': OPTIONS},
+    setup_requires=['py2app'],
+)
