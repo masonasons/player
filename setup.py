@@ -15,7 +15,7 @@ def get_data():
 ]+sound_lib.find_datafiles()
 
 if platform.system()=='Windows':
-	setup(console=['player.py'],packages= find_packages(), options = {
+	setup(console=['player.py'],packages= find_packages(), data_files=get_data(), options = {
    'py2exe': {   
     'optimize':2,
    'packages': ["dbhash"],
@@ -25,7 +25,7 @@ if platform.system()=='Windows':
   })
 if platform.system()=='Darwin':
 		setup(
-    app="player.py",
+    app="player.py", data_files=get_data(),
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
 )

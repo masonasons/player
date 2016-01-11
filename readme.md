@@ -17,16 +17,20 @@ vu: Increase volume by 5 percent.
 quit: Exit.
 
 #Building
-You will need the following to build Player.
+You will need the following to build Player. These can be gotten from Pip. pip install packagename
 
 ##Windows
-*setuptools
-*py2exe
+
+setuptools
+
+py2exe
 
 type setup.py py2exe
 
 ##mac
-*setuptools
-*py2app
+
+setuptools
+
+py2app
 
 Type setup.py py2app
