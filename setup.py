@@ -6,11 +6,9 @@ def get_data():
  import accessible_output2
  import sound_lib
  return [
-    ("requests", ["cacert.pem"]),
-  ("accessible_output2/lib", glob("accessible_output2/lib/*.dll")),
-]+sound_lib.find_datafiles()+accessible_output2.find_datafiles()
+]+sound_lib.find_datafiles()
 
-setup(windows=['pytest.py'],packages= find_packages(), options = {
+setup(console=['player.py'],packages= find_packages(), options = {
    'py2exe': {   
     'optimize':2,
    'packages': ["dbhash"],
