@@ -13,6 +13,14 @@ class commandline(cmd.Cmd):
 		else:
 			player.stream.volume-=0.05
 		print "Volume is now "+str(round(player.stream.volume,2))
+	def help_v(self):
+		print "Specify the volume manually. Range is from 0.05 to 1.0"
+	def do_v(self, line):
+		if float(line)<0.05 or float(line)>1.0:
+			print "Number out of range"
+		else:
+			player.stream.volume=float(line)
+		print "Volume is now "+str(round(player.stream.volume,2))
 	def help_vu(self):
 		print "Turns up the volume of the audio."
 	def do_vu(self, line):
