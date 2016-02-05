@@ -5,6 +5,10 @@ import sound_lib
 import audio_player
 player=audio_player.URLStream()
 class commandline(cmd.Cmd):
+	def help_quit(self):
+		print "Quits the application."
+	def do_quit(self, line):
+		exit()
 	def help_vd(self):
 		print "Turns down the volume of the audio."
 	def do_vd(self, line):
@@ -16,11 +20,14 @@ class commandline(cmd.Cmd):
 	def help_v(self):
 		print "Specify the volume manually. Range is from 0.05 to 1.0"
 	def do_v(self, line):
-		if float(line)<0.01 or float(line)>1.0:
-			print "Number out of range"
+		if line=="":
+			print "Error: No value given"
 		else:
-			player.stream.volume=float(line)
-		print "Volume is now "+str(round(player.stream.volume,2))
+			if float(line)<0.01 or float(line)>1.0:
+				print "Number out of range"
+			else:
+				player.stream.volume=float(line)
+			print "Volume is now "+str(round(player.stream.volume,2))
 	def help_vu(self):
 		print "Turns up the volume of the audio."
 	def do_vu(self, line):
