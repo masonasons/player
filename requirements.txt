@@ -1,0 +1,2 @@
+http://hg.q-continuum.net/libloader/archive/tip.tar.gz
+http://hg.q-continuum.net/platform_utils/archive/tip.tar.gz
